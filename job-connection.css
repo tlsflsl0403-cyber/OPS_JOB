@@ -1,0 +1,456 @@
+:root {
+  color-scheme: light;
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --jc-blue: #315ee8;
+  --jc-blue-dark: #2449bf;
+  --jc-blue-soft: #eef3ff;
+  --jc-lavender: #f2efff;
+  --jc-ink: #1d2738;
+  --jc-muted: #647084;
+  --jc-border: #e2e7f0;
+  --jc-surface: #ffffff;
+  --jc-page: #f7f9fd;
+  --jc-radius: 1rem;
+  --jc-shadow: 0 0.4rem 1.4rem rgb(28 43 75 / 6%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--jc-page);
+  color: var(--jc-ink);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+button,
+table {
+  font: inherit;
+}
+
+.jc-shell {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: minmax(0, 1fr);
+  margin-inline: auto;
+  max-width: 80rem;
+  min-width: 0;
+  padding: clamp(1rem, 3vw, 2.5rem);
+}
+
+.jc-title {
+  margin: 0;
+  color: var(--jc-ink);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 750;
+  letter-spacing: -0.045em;
+  line-height: 1.25;
+}
+
+.jc-tabs,
+.jc-job-chips,
+.jc-actions,
+.jc-tag-list,
+.jc-profile-tags {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.jc-tabs {
+  border-bottom: 1px solid var(--jc-border);
+  gap: 0.375rem;
+}
+
+.jc-tab,
+.jc-job-chip,
+.jc-button {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.625rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+
+.jc-tab {
+  background: transparent;
+  border-radius: 0.65rem 0.65rem 0 0;
+  color: var(--jc-muted);
+  font-weight: 650;
+  margin-bottom: -1px;
+}
+
+.jc-tab:hover,
+.jc-tab[aria-pressed="true"] {
+  color: var(--jc-blue-dark);
+}
+
+.jc-tab[aria-pressed="true"] {
+  background: linear-gradient(110deg, var(--jc-blue-soft), var(--jc-lavender));
+  border-bottom-color: var(--jc-blue);
+}
+
+.jc-panel,
+.jc-job-list,
+.jc-job-detail {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.jc-card,
+.jc-recommendation-card {
+  background: var(--jc-surface);
+  border: 1px solid var(--jc-border);
+  border-radius: var(--jc-radius);
+  box-shadow: var(--jc-shadow);
+  min-width: 0;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.jc-job-card,
+.jc-analysis-summary,
+.jc-section-heading {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: space-between;
+}
+
+.jc-section-heading {
+  margin-block-end: 0.75rem;
+}
+
+.jc-section-heading > :first-child,
+.jc-analysis-summary > :first-child {
+  min-width: 0;
+}
+
+.jc-section-heading > :last-child {
+  color: var(--jc-muted);
+  margin-block: 0;
+}
+
+.jc-analysis-grid,
+.jc-recommendation {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.jc-job-explorer {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+}
+
+.jc-job-detail {
+  align-content: start;
+}
+
+.jc-match {
+  flex: 0 1 11rem;
+  min-width: min(100%, 9rem);
+  text-align: end;
+}
+
+.jc-match strong {
+  color: var(--jc-blue-dark);
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.jc-match > span,
+.jc-small-note,
+.jc-evidence {
+  color: var(--jc-muted);
+  font-size: 0.875rem;
+}
+
+.jc-progress {
+  background: #e9edf5;
+  border-radius: 999px;
+  height: 0.5rem;
+  margin-block: 0.5rem 0.75rem;
+  overflow: hidden;
+}
+
+.jc-progress span {
+  background: linear-gradient(90deg, var(--jc-blue), #8b78df);
+  border-radius: inherit;
+  display: block;
+  height: 100%;
+}
+
+.jc-button {
+  background: var(--jc-blue);
+  color: #fff;
+  font-weight: 650;
+}
+
+.jc-button:hover {
+  background: var(--jc-blue-dark);
+}
+
+.jc-button--secondary {
+  background: var(--jc-blue-soft);
+  border-color: #d7e1ff;
+  color: var(--jc-blue-dark);
+}
+
+.jc-button--secondary:hover {
+  background: #e1e9ff;
+}
+
+.jc-job-chip {
+  background: #fff;
+  border-color: var(--jc-border);
+  color: var(--jc-muted);
+}
+
+.jc-job-chip:hover,
+.jc-job-chip[aria-pressed="true"] {
+  background: var(--jc-blue-soft);
+  border-color: #b8caff;
+  color: var(--jc-blue-dark);
+}
+
+.jc-tab:focus-visible,
+.jc-job-chip:focus-visible,
+.jc-button:focus-visible,
+.jc-recommendation-card a:focus-visible {
+  outline: 3px solid #9db5ff;
+  outline-offset: 2px;
+}
+
+.jc-tag {
+  align-items: center;
+  background: linear-gradient(110deg, var(--jc-blue-soft), var(--jc-lavender));
+  border: 1px solid #e1e5fb;
+  border-radius: 999px;
+  color: #3d4c70;
+  display: inline-flex;
+  font-size: 0.875rem;
+  gap: 0.35rem;
+  max-width: 100%;
+  padding: 0.25rem 0.7rem;
+  overflow-wrap: anywhere;
+}
+
+.jc-tag-count {
+  color: var(--jc-muted);
+  font-size: 0.75rem;
+}
+
+.jc-badge,
+.jc-status {
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 0.8rem;
+  font-weight: 650;
+  padding: 0.25rem 0.65rem;
+}
+
+.jc-status--enough {
+  background: #e8f7ef;
+  color: #187447;
+}
+
+.jc-status--some {
+  background: #fff3dc;
+  color: #895800;
+}
+
+.jc-status--none {
+  background: #f0f2f6;
+  color: #5d6879;
+}
+
+.jc-analysis-grid {
+  align-items: start;
+}
+
+.jc-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+.jc-skill-table {
+  border-collapse: collapse;
+  min-width: 32rem;
+  width: 100%;
+}
+
+.jc-skill-table th,
+.jc-skill-table td {
+  border-bottom: 1px solid var(--jc-border);
+  padding: 0.7rem 0.6rem;
+  text-align: start;
+}
+
+.jc-skill-table th {
+  background: #f8f9fc;
+  color: var(--jc-muted);
+  font-size: 0.85rem;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.jc-chart {
+  height: min(60vw, 22rem);
+  min-height: 16rem;
+  position: relative;
+}
+
+.jc-chart canvas {
+  max-height: 100%;
+}
+
+.jc-score {
+  color: var(--jc-blue-dark);
+  font-size: 1.75rem;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.jc-score .jc-small-note {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.jc-section-spaced {
+  margin-block-start: 1rem;
+}
+
+.jc-notice {
+  border: 1px solid transparent;
+  border-radius: 0.85rem;
+  padding: 0.9rem 1rem;
+}
+
+.jc-notice p {
+  margin-block: 0.25rem;
+}
+
+.jc-notice--info {
+  background: linear-gradient(110deg, #f0f5ff, #f5f2ff);
+  border-color: #e1e6fa;
+  color: #34466d;
+}
+
+.jc-notice--warn {
+  background: #fff8e9;
+  border-color: #f3e4bd;
+  color: #75551b;
+}
+
+.jc-notice--good {
+  background: #edf8f2;
+  border-color: #d4ecdf;
+  color: #225d3f;
+}
+
+.jc-notice--error {
+  background: #fff0ef;
+  border-color: #f2d2cf;
+  color: #8d302b;
+}
+
+.jc-empty {
+  color: var(--jc-muted);
+  margin-block: 0.5rem;
+}
+
+.jc-recommendation-card h3,
+.jc-job-detail h3 {
+  margin-block: 0 0.5rem;
+}
+
+.jc-recommendation-card p,
+.jc-job-detail p {
+  margin-block: 0.35rem;
+}
+
+.jc-recommendation-card a {
+  color: var(--jc-blue-dark);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+.jc-detail-block {
+  border-top: 1px solid var(--jc-border);
+  padding-block-start: 0.85rem;
+}
+
+.jc-detail-block ul {
+  margin-block: 0.4rem 0;
+  padding-inline-start: 1.25rem;
+}
+
+.jc-detail-block li + li {
+  margin-block-start: 0.35rem;
+}
+
+@media (max-width: 48rem) {
+  .jc-analysis-grid,
+  .jc-recommendation {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .jc-job-card {
+    align-items: start;
+  }
+
+  .jc-match {
+    flex-basis: 100%;
+    text-align: start;
+  }
+}
+
+@media (max-width: 22.5rem) {
+  .jc-shell {
+    gap: 1rem;
+    padding: 0.875rem;
+  }
+
+  .jc-tabs {
+    gap: 0.125rem;
+  }
+
+  .jc-tab {
+    flex: 1 1 auto;
+    font-size: 0.875rem;
+    padding-inline: 0.5rem;
+  }
+
+  .jc-card,
+  .jc-recommendation-card {
+    border-radius: 0.8rem;
+    padding: 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

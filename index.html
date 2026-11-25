@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>직무 연결</title>
+    <link rel="stylesheet" href="./job-connection.css">
+  </head>
+  <body>
+    <main class="jc-shell" data-job-connection aria-label="직무 연결"></main>
+    <script src="./data/jobs.js"></script>
+    <script src="./data/contests.js"></script>
+    <script src="./data/missions.js"></script>
+    <script src="./common/storage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="./job-connection.js"></script>
+    <script>
+      window.OPSJOB.mountJobConnection(document.querySelector("[data-job-connection]"));
+    </script>
+  </body>
+</html>
